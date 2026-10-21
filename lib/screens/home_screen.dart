@@ -33,52 +33,60 @@ class HomeScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   padding: EdgeInsets.all(padding),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.favorite_outline,
-                        size: isWide ? 80 : 56,
-                        color: theme.colorScheme.primary,
-                      ),
                       const SizedBox(height: 16),
-                      Text(
-                        'Campus Wellness Tracker',
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.headlineMedium,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        'Evaluate your current study-life balance.',
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                      const SizedBox(height: 32),
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Student', style: theme.textTheme.labelLarge),
-                              const SizedBox(height: 4),
-                              Text('John Doe', style: theme.textTheme.titleLarge),
-                              const SizedBox(height: 4),
-                              Text('BSCS-3', style: theme.textTheme.bodyLarge),
-                            ],
-                          ),
+                      Container(
+                        width: 48,
+                        height: 6,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.secondary,
+                          borderRadius: BorderRadius.circular(3),
                         ),
                       ),
-                      const SizedBox(height: 32),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const AssessmentScreen(),
-                            ),
-                          );
-                        },
-                        child: const Text('Start Assessment'),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Campus Wellness Tracker',
+                        style: isWide
+                            ? theme.textTheme.displaySmall
+                            : theme.textTheme.headlineMedium,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        'Check how your sleep, stress, and study habits '
+                        'are balancing out.',
+                        style: theme.textTheme.bodyLarge,
+                      ),
+                      const SizedBox(height: 40),
+                      Divider(color: theme.colorScheme.outlineVariant),
+                      const SizedBox(height: 16),
+                      Text(
+                        'Nino Cometa',
+                        style: theme.textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        'BSIT-3',
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Divider(color: theme.colorScheme.outlineVariant),
+                      const SizedBox(height: 40),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const AssessmentScreen(),
+                              ),
+                            );
+                          },
+                          child: const Text('Start Assessment'),
+                        ),
                       ),
                     ],
                   ),
